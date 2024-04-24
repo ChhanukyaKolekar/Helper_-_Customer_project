@@ -1,0 +1,153 @@
+
+{% include 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            background-color: cyan;
+           
+        }
+    
+    
+      table {
+        margin-left: 30%;
+        padding: 20px;
+        font-size:medium;
+        width:  35%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 2px solid black;
+        padding:    6px;
+        font-size: 100%;
+        
+      }
+      th {
+        background-color: #4ddf6c;
+    
+        
+      }
+      td{
+        text-align: center;
+        background-color: #ffffff;
+      }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <br>
+    {% if customer_data %}
+    <h2>
+        
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Customer ID
+                </th>
+                <th>
+                    Assigned Helper
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in customer_data %}
+            <tr>
+                <td>
+                    {{i.name}}
+                </td>
+                <td>
+                    {{i.customer_id}}
+                </td>
+                <td>
+                    {{i.address}}
+                </td>
+                <td>
+                    {{i.phone_number}}
+                </td>
+
+                <td>
+                    {{i.helper_assigned}}
+                </td>
+
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if helpers_data%}
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Helper Name
+                </th>
+                <th>
+                    Helper ID
+                </th>
+                <th>
+                   Age
+                </th>
+                <th>
+                   Gender
+                </th>
+                <th>
+                   Skills
+                </th>
+        
+            </tr>
+        </thead>
+
+        <tbody>
+         
+            {% for i in helpers_data %}
+            <tr>
+                <td>
+                    {{i.name}}
+                </td>
+                <td>
+                    {{i.helper_id}}
+                </td>
+                <td>
+                    {{i.age}}
+                </td>
+                <td>
+                    {{i.gender}}
+                </td>
+                <td>
+                    {{i.skills}}
+                </td>
+
+            </tr>
+                
+                {% endfor %}
+
+         
+            
+
+        </tbody>
+    </table>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

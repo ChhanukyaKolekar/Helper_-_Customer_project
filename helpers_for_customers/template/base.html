@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          font-size: small;
+          height: auto;
+          width: auto;
+        }
+    
+        nav {
+          background-color: #000000;
+          overflow: hidden;
+          width: 100%;
+        }
+    
+        nav a {
+          float: left;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+    
+        nav a:hover {
+          background-color: #ffffff;
+          color: black;
+        }
+      </style>
+      
+</head>
+<body>
+   
+    
+        <nav>
+                <a href="{% url 'adding_helper' %}"> <b>ADD HELPER</b> </a>
+                <a href="{% url 'adding_customer' %}"> <b>ADD CUSTOMER</b> </a>
+                <a href="{% url 'helper_assigning' %}"> <b> ASSIGN HELPER TO CUSTOMER</b></a>
+                <a href="{% url 'cust_info' %}"> <b> LIST OF CUSTOMER</b></a>
+                <a href="{% url 'helper_info' %}"> <b> LIST OF HELPERS</b></a>
+        </nav>
+        {% block content %}
+        
+        {%  endblock  %}
+  
+    
+</body>
+</html>

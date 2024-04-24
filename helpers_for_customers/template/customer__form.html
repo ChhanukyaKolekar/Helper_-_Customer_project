@@ -1,0 +1,89 @@
+{% include 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0; 
+            background-color: cyan;
+        }
+        form {
+            margin: auto;
+            height: auto;
+            width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            
+        }
+
+        button {
+    
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+           
+        }
+
+        button:hover {
+            background-color: #0039d5;
+        }
+     
+    </style>
+</head>
+<body>
+    {% block content %}
+    <br>
+    <form method="POST" action="{% url 'adding_customer' %}">
+        {% csrf_token %}
+
+        <h3> ADD CUSTOMER   </h3>
+
+            <label for="customer_name">CUSTOMER NAME:</label>
+            <input type="text" name="customer_name" required>
+           
+            <br>
+            <label for="customer_address">ADDRESS:</label>
+            <input type="text" name="customer_address" required>
+            <br>
+            <label for="customer_contact">CONTACT:</label>
+            <input type="number" name="customer_contact" required>
+           
+            <button type="submit">Submit</button>
+            <div>
+                {% if messages %}
+                {% for msg in messages %}
+                     <h3> {{msg}}</h3>
+                {% endfor %}
+                {% endif %}
+            </div>
+    </form>
+
+    {%  endblock %}
+</body>
+</html>
